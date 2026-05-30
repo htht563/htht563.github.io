@@ -119,7 +119,7 @@ const button9 = document.querySelector('.button.button9');
 
 // 创建 iframe 元素
 const iframe = document.createElement('iframe');
-iframe.src = 'https://player.bilibili.com/player.html?isOutside=true&aid=114146171486990&bvid=BV15fQLYgEUo&cid=28818738580&p=1';
+iframe.src = 'https://player.bilibili.com/player.html?isOutside=true&aid=116593967235567&bvid=BV1W8LF62EMj&cid=38418517476&p=1';
 iframe.scrolling = 'no';
 iframe.border = '0';
 iframe.frameborder = 'no';
@@ -358,3 +358,91 @@ function explodeFirework(x, y, color, firework) {
     }, 16);
 }
 
+// 顶栏鼠标跟随光效脚本
+(function() {
+    const header = document.querySelector('.header');
+    if (header) {
+        let headerHideTimer = null;
+        header.addEventListener('mousemove', (e) => {
+            const rect = header.getBoundingClientRect();
+            const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+            const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
+            header.style.setProperty('--mx', xPercent + '%');
+            header.style.setProperty('--my', yPercent + '%');
+            // 增加光强并延长可见时间，使光斑更明显
+            header.style.setProperty('--glow', '0.95');
+            if (headerHideTimer) clearTimeout(headerHideTimer);
+            headerHideTimer = setTimeout(() => header.style.setProperty('--glow', '0'), 1000);
+        });
+
+        header.addEventListener('mouseleave', () => {
+            if (headerHideTimer) clearTimeout(headerHideTimer);
+            header.style.setProperty('--glow', '0');
+        });
+    }
+
+    // 为所有 .sbo 元素添加光效跟随
+    const sbos = document.querySelectorAll('.sbo');
+    if (sbos.length) {
+        sbos.forEach((sbo) => {
+            // 初始化变量（可选）
+            sbo.style.setProperty('--mx', '50%');
+            sbo.style.setProperty('--my', '50%');
+            sbo.style.setProperty('--glow', '0');
+
+            let hideTimer = null;
+            sbo.addEventListener('mousemove', (e) => {
+                const rect = sbo.getBoundingClientRect();
+                const xPercent = ((e.clientX - rect.left) / rect.width) * 100;
+                const yPercent = ((e.clientY - rect.top) / rect.height) * 100;
+                sbo.style.setProperty('--mx', xPercent + '%');
+                sbo.style.setProperty('--my', yPercent + '%');
+                // 更大的光效与更长的保持时间
+                sbo.style.setProperty('--glow', '0.95');
+                if (hideTimer) clearTimeout(hideTimer);
+                hideTimer = setTimeout(() => sbo.style.setProperty('--glow', '0'), 1000);
+            });
+
+            sbo.addEventListener('mouseleave', () => {
+                if (hideTimer) clearTimeout(hideTimer);
+                sbo.style.setProperty('--glow', '0');
+            });
+
+            sbo.addEventListener('click', () => {
+                const rect = sbo.getBoundingClientRect();
+                const count = 4;
+                for (let i = 0; i < count; i++) {
+                    const pop = document.createElement('img');
+                    pop.src = './7ab549c571009811a069b07c0831799941538595.png';
+                    pop.alt = '';
+                    pop.className = 'popout-image';
+                    const startX = rect.left + rect.width / 2;
+                    const startY = rect.top + rect.height / 2;
+                    pop.style.left = `${startX}px`;
+                    pop.style.top = `${startY}px`;
+                    pop.style.opacity = '0';
+                    pop.style.transform = 'translate(-50%, -50%) scale(0.8)';
+                    document.body.appendChild(pop);
+
+                    const angle = Math.PI * 1.2 + (i / (count - 1)) * Math.PI * 0.6;
+                    const distance = 180 + Math.random() * 40;
+                    const dx = Math.cos(angle) * distance;
+                    const dy = Math.sin(angle) * distance * -1;
+
+                    requestAnimationFrame(() => {
+                        pop.style.opacity = '1';
+                        pop.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(1)`;
+                    });
+
+                    setTimeout(() => {
+                        pop.style.opacity = '0';
+                        pop.style.transform = `translate(calc(-50% + ${dx * 1.1}px), calc(-50% + ${dy * 1.1}px)) scale(0.6)`;
+                    }, 700 + i * 50);
+                    setTimeout(() => {
+                        if (pop.parentNode) pop.parentNode.removeChild(pop);
+                    }, 1100 + i * 50);
+                }
+            });
+        });
+    }
+})();
