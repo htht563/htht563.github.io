@@ -96,6 +96,7 @@ text2.addEventListener('click', function() {
     text2.style.display = 'none';
 });
 
+/*
 
 // 获取 button8 按钮元素
 const button8 = document.querySelector('.button.button8');
@@ -104,6 +105,8 @@ const button8 = document.querySelector('.button.button8');
 button8.addEventListener('click', function() {
     window.open('https://space.bilibili.com/494280519', '_blank');
 });
+
+*/
 
 // 获取 button11 按钮元素
 const button11 = document.querySelector('.button.button11');
@@ -192,13 +195,19 @@ const colorPicker = document.querySelector('.color');
 const hexText = document.querySelector('.hex');
 
 // 初始化显示当前颜色
+colorPicker.style.boxShadow = `0 0 30px ${colorPicker.value}`;
+colorPicker.style.backgroundColor = colorPicker.value;
 hexText.textContent = colorPicker.value;
 hexText.style.color = colorPicker.value;
+hexText.style.textShadow = `0 0 5px ${colorPicker.value}`;
 
 // 监听颜色变化
 colorPicker.addEventListener('input', function() {
+    colorPicker.style.backgroundColor = colorPicker.value;
+    colorPicker.style.boxShadow = `0 0 30px ${colorPicker.value}`;
     hexText.textContent = colorPicker.value;
     hexText.style.color = colorPicker.value;
+    hexText.style.textShadow = `0 0 5px ${colorPicker.value}`;
 });
 
 // 复制 hex 到剪切板
