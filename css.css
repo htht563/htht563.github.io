@@ -1,0 +1,91 @@
+body {
+    padding-block-start: 80px;
+    background-color: #ffffff;
+}
+
+.header {
+    background-color: #00ffea52;
+    color: #ffffff;
+    padding: 20px;
+    font-size: 2rem;
+    text-align: start;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-block-end: 1px solid rgba(255,255,255,0.18);
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    z-index: 114514;
+}
+
+p:hover{
+    cursor: default;
+    animation: hovertext 2s infinite;
+}
+
+p{
+    cursor: default;
+    text-shadow: 0 0 25px #000000;
+}
+
+.titles {
+    font-size: 25px;
+}
+
+#email {
+    background-color: #ffffda;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+};
+
+@keyframes hovertext {
+    0% { color: #00b3ff; }
+    25% { color: #00bbff; }
+    50% { color: #0033ff; }
+    75% { color: #008cff; }
+    100% { color: #3c00ff; }
+    0% { text-shadow: 0 0 30px #00b3ff; }
+    25% { text-shadow: 0 0 30px #00bbff; }
+    50% { text-shadow: 0 0 30px #0033ff; }
+    75% { text-shadow: 0 0 30px #008cff; }
+    100% { text-shadow: 0 0 30px #3c00ff; }
+}
+
+/* 顶栏鼠标跟随光效 */
+.header {
+    --mx: 50%;
+    --my: 50%;
+    --glow: 0;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* 放大顶栏光斑，使其更明显 */
+    background: radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.14) 25%, rgba(255,255,255,0.06) 45%, rgba(0,0,0,0) 70%);
+    mix-blend-mode: screen;
+    opacity: var(--glow);
+    transition: opacity 300ms ease, background-position 50ms linear;
+    border-radius: inherit;
+    z-index: 114514;
+}
+
+.header > * {
+    position: relative;
+    z-index: 114515;
+}
+
+.sta {
+    text-shadow: 0 0 25px #00ccb8;
+    text-align: start;
+    color:#00ccb8;
+}
+
+.tdp {
+    box-shadow: 0 0 25px #00ccb8;
+    box-align: end;
+}
