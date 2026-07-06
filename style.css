@@ -26,10 +26,10 @@ p:hover{
     animation: hovertext 2s infinite;
 }
 
-p{
+samp , p{
     cursor: default;
     color: #ffffff;
-    text-shadow: 1px 1px 2px #000000;
+    text-shadow: 0 0 25px #ffffff;
 }
 
 .titles {
@@ -64,110 +64,130 @@ h1, p {
     background-color: white; 
     color: black; 
     border: 2px solid #df3939;
+    box-shadow: 0 0 10px #df3939;
 }
 
 .button1:hover {
     background-color: #df3939;
     color: white;
+    box-shadow: 0 0 10px #df3939;
 }
 
 .button2 {
     background-color: white; 
     color: black; 
     border: 2px solid #c6e3ff;
+    box-shadow: 0 0 10px #c6e3ff;
 }
 
 .button2:hover {
     background-color: #c6e3ff;
     color: white;
+    box-shadow: 0 0 10px #c6e3ff;
 }
 
 .button3 {
     background-color: white; 
     color: black; 
     border: 2px solid #dddd3a;
+    box-shadow: 0 0 10px #dddd3a;
 }
 
 .button3:hover {
     background-color: #dddd3a;
     color: white;
+    box-shadow: 0 0 10px #dddd3a;
 }
 
 .button4 {
     background-color: white; 
     color: black; 
     border: 2px solid #20bd20;
+    box-shadow: 0 0 10px #20bd20;
 }
 
 .button4:hover {
     background-color: #20bd20;
     color: white;
+    box-shadow: 0 0 10px #20bd20;
 }
 
 .button5 {
     background-color: white; 
     color: black; 
     border: 2px solid #a020bd;
+    box-shadow: 0 0 10px #a020bd;
 }
 
 .button5:hover {
     background-color: #a020bd;
     color: white;
+    box-shadow: 0 0 10px #a020bd;
 }
 
 .button6 {
     background-color: white; 
     color: black; 
     border: 2px solid #47ffed;
+    box-shadow: 0 0 10px #47ffed;
 }
 
 .button6:hover {
     background-color: #47ffed;
     color: white;
+    box-shadow: 0 0 10px #47ffed;
 }
 
 .button7 {
     background-color: white; 
     color: black; 
     border: 2px solid #ff47ce;
+    box-shadow: 0 0 10px #ff47ce;
 }
 
 .button7:hover {
     background-color: #ff47ce;
     color: white;
+    box-shadow: 0 0 10px #ff47ce;
 }
 
 .button8 {
     background-color: white; 
     color: black; 
     border: 2px solid #4787ff;
+    box-shadow: 0 0 10px #4787ff;
 }
 
 .button8:hover {
     background-color: #4787ff;
     color: white;
+    box-shadow: 0 0 10px #4787ff;
 }
 
 .button9 {
     background-color: white; 
     color: black; 
     border: 2px solid #ff6b6b;
+    box-shadow: 0 0 10px #ff6b6b;
 }
 
 .button9:hover {
     background-color: #ff6b6b;
     color: white;
+    box-shadow: 0 0 10px #ff6b6b;
 }
 
 .button10 {
     background-color: white; 
     color: black; 
     border: 2px solid #6bff6b;
+    box-shadow: 0 0 10px #6bff6b;
 }
 
 .button10:hover {
     background-color: #6bff6b;
     color: white;
+    box-shadow: 0 0 10px #6bff6b;
 }
 
 .button11 {
@@ -179,6 +199,7 @@ h1, p {
 .button11:hover {
     background-color: #956bff;
     color: white;
+    box-shadow: 0 0 10px #956bff;
 }
 
 .sbo {
@@ -191,7 +212,7 @@ h1, p {
     border: 50px solid #14b1f5;
     padding: 70px 50px;
     font-size: 18px;
-    box-shadow: 0 4px 8px #14b1f5;
+    box-shadow: 0 0 30px #14b1f5;
     border: 2px solid #14b1f5;
     border-radius: 16px;
     border: none;
@@ -207,7 +228,7 @@ h1, p {
     border: 2px solid #14b1f5;
     padding: 70px 50px;
     font-size: 18px;
-    box-shadow: 0 4px 8px #14b1f5;
+    box-shadow: 0 0 30px #14b1f5;
     border-radius: 16px;
     border: none;
     overflow: hidden;
@@ -251,17 +272,20 @@ h1, p {
 .color {
     inline-size: 60px;
     block-size: 60px;
-    border-radius: 25%;
+    border-radius: 100%;
     border: none;
+
     cursor: pointer;
 }
 
 .progress {
     accent-color: #68bc68;
+    box-shadow: 0 0 30px #68bc68;
 }
 
 .slider {
     accent-color: #7c69bf;
+    box-shadow: 0 0 30px #7c69bf;
 }
 
 .copy {
@@ -282,10 +306,11 @@ h1, p {
     position: fixed;
     inset-block-end: 20px;
     inset-inline-end: 10px;
-    background-color: white; 
-    color: black; 
+    background-color: white;
+    color: black;
+    border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
     animation: borderChange 2s infinite;
 }
 
@@ -389,4 +414,36 @@ iframe {
 .header > * {
     position: relative;
     z-index: 114515;
+}
+
+h3 , h6{
+    cursor: default;
+    color: #ffffff;
+    text-shadow: 0 0 25px #ffffff;
+}
+
+h3:hover{
+    cursor: default;
+    animation: hovertext 2s infinite;
+}
+
+h6:hover{
+    cursor: default;
+    animation: hovertext 2s infinite;
+}
+
+h5 {
+    cursor: default;
+    color: #ffffff;
+    text-shadow: 0 0 25px #ffffff;
+}
+
+h5:hover {
+    cursor: default;
+    animation: hovertext 2s infinite;
+}
+
+.ps1 {
+    background-color: #ffffff;
+    box-shadow: 0 0 30px #ffffff;
 }
