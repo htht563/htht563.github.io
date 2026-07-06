@@ -1,0 +1,30 @@
+<a href="jc.html"><h5>←返回</h5></a>
+<h1>神奇代码岛PRO版UI教程</h1>
+<p>本教程将介绍如何使用神奇代码岛PRO版UI</p>
+
+<h2>1. UI简介</h2>
+<p>UI是神奇代码岛提供的一套用于创建自定义UI界面的API。通过使用UI，您可以轻松地创建各种类型的UI界面。</p>
+
+<h2>2. UI界面代码</h2>
+<p>以下是UI代码的使用教程：</p>
+<h3>将UI界面的元素定义</h3>
+<pre><code>
+// 定义text-1为“text”
+let text = ui.findChildByName("text-1") // text-1为UI界面的元素名称
+</code></pre>
+
+<h3>UI界面的更改</h3>
+
+<h4>文本的更改</h4>
+<p>在UI的代码中，您可以使用以下代码来更改文本：</p>
+<pre><code>
+// 将“text”（使用“let text =……”来定义‘text’）的文本更改为“Hello World!”
+text.textContent = 'Hello World!';
+</code></pre>
+
+<h4>图片的更改</h4>
+<p>以下是更改图片的代码：</p>
+<pre><code>
+// 将“img”（使用“let img =……”来定义‘img’）的图片更改为该图片库中的“img-1.png”
+text.textContent = 'picture/img-1.png';
+</code></pre>
